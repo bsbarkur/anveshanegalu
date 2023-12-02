@@ -10,14 +10,14 @@ title: About Me
       <p class="pt-8 text-xl">I am Bharat Shetty Barkur. I'm an AI engineer. I have been fortunate to work in diverse places and teams in different roles, enhancing my experience in a few places such as <a href="https://www.airtel.in/careers/airtelxlabs/life">Airtel Labs</a>, <a href="https://www.ibm.com/in-en">IBM India Software Labs</a>, <a href="https://www.arubanetworks.com/">Aruba Networks</a>, <a href="https://www.fybr.com/"> Fybr</a>, </a><a href="https://www.concertohealthai.com/"> Concerto HealthAI</a>, and a lot of startups trying to build products and platforms across diverse verticals leveraging AI, Machine Learning, NLP and Software Engineering making use of fundamental Computer Science principles and concepts. I obtained my Masters in Computer Science and Engineering from <a href="https://www.cise.ufl.edu/">University of Florida</a>, Gainesville, USA.</p>
       <p class="pt-8 text-md">I'm a huge technological buff and I enjoy participating in interesting conversations and research spanning from books, technology, cultures, languages, neuroscience, accessibility, finance, fitness, cooking, TV shows and movies in general. I'm a professional programmer by profession and I have written code in multiple languages such as C, C++, Python, Java and Erlang. </p>
 
-### Trivia About me
+<h3 class="text-4xl font-bold pt-4 lg:pt-0">Trivia About Me</h3>
 <ul>
 <li> I have traveled to 14 cities over 2 continents so far.</li>
 <li> I can write and converse in two languages - English and Kannada. </li>
 <li> I'm also a cyborg with a <a href="https://cochlearcyborg.wordpress.com/">Advanced Bionics CI</a> in my right ear.</li>
 </ul>
 	
-### Contact
+<h3 class="text-4xl font-bold pt-4 lg:pt-0">Contact</h3>
 <a class="link" href="https://www.linkedin.com/in/bharat-shetty-barkur-8111511" data-tippy-content="linkedin.com/in/bharat-shetty-barkur-8111511">Linkedin</a> |  				<a class="link" href="https://github.com/bsbarkur" data-tippy-content="@bsbarkur">Github</a> 
 	
 	
