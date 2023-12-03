@@ -1,5 +1,5 @@
-Here you can say lots of fun things about your site.
+Hey, all. So I'm very passionate in general about CS, theory, applications, and problem-solving as the technologies around us grow at a rapid pace.
 
-Maybe say a some things about yourself.
+Check the "About Me" for a more detailed intro on me.
 
-Or maybe what you plan to blog about.
+I also plan to capture the notes on many things that I've learned and stuff I'm interested in. Please follow the blog for more details.
