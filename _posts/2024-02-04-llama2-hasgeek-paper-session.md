@@ -111,7 +111,8 @@ https://www.youtube.com/watch?v=o68RRGxAtDo
 This explains how Grouped Query Attention works.
 
 
-![[Pasted image 20240204172140.png]]
+![Self Attention head Blocks in transformer](https://github.com/bsbarkur/bsbarkur.github.io/assets/106684/9d7bdfad-cd8f-4d68-8eca-6154baed1d9d)
+
 
 So the attention score in the above diagram is calculated this way.
 
