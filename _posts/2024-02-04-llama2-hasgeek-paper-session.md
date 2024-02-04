@@ -2,13 +2,13 @@
 
 
 ## Paper link
-https://scontent.fblr1-9.fna.fbcdn.net/v/t39.2365-6/10000000_662098952474184_2584067087619170692_n.pdf?_nc_cat=105&ccb=1-7&_nc_sid=3c67a6&_nc_ohc=NEkCQL7LOTAAX9ahLZv&_nc_ht=scontent.fblr1-9.fna&oh=00_AfDff6zoD056KOrfrligPugP_xh0hMncILtZ0AThCuwakQ&oe=65C36FFF
+[Llama2 Paper by Meta](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)
 
 
-## **Architecture high level of the model training pipeline followed in LLAMA2 by Meta**
+## Architecture high level of the model training pipeline followed in LLAMA2 by Meta
 ![High level architecture of llama2 training pipeline](https://github.com/bsbarkur/bsbarkur.github.io/assets/106684/21797517-1c11-48bd-b215-10dc0d152219)
 
-## *Why continual pre-training is hard?**
+## Why continual pre-training is hard?
 Continual pre-trained models are difficult to train because they must learn to perform well on a wide range of tasks, often without access to a lot of data for each task. 
 
 This can make it difficult to find a set of hyper-parameters that work well for all tasks. Additionally, continual pre-trained models must be able to learn new tasks without forgetting what they have already learned. This is a difficult problem, as it requires the model to be able to distinguish between different tasks and to update its knowledge in a way that does not interfere with its performance on previous tasks. 
