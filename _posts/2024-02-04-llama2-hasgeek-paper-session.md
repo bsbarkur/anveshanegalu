@@ -71,11 +71,11 @@ In the reward model, the learning rate is further reduced by an order of one mag
 
 - In RLHF, the agent (our fine-tuned instruct LLM) in its environment (Context Window) takes one action (of generating text) from all available actions in the action space (the entire vocabulary of tokens/words in the LLM).
 
-Rejection sampling
+### Rejection sampling
 - Close to SFT
 - given the prompt to the model, generate 10 samples with 10 different temperatures, ask the reward model which of these samples had max reward, then fine-tune on that particular prompt response pair
 
-PPO - proximal policy optimization
+### PPO - proximal policy optimization
 * We make our policy get maximum amount of reward
 * Two models were trained for saftey and helpfulness
 * If safety was less than 0.15 they won't look at helpfulness
@@ -116,19 +116,19 @@ This explains how Grouped Query Attention works.
 
 So the attention score in the above diagram is calculated this way.
 
-Query and Key matrixes are multiplied.
-Scaling on the dot product of it happens using d_k and taking square root of d_k
-A mask can also be applied (optional)
-Finally on this scaled Q x K^T product, we apply soft max
-This is multiplied by value matrix to get an attention score matrix
+* Query and Key matrixes are multiplied.
+* Scaling on the dot product of it happens using d_k and taking square root of d_k
+* A mask can also be applied (optional)
+* Finally on this scaled Q x K^T product, we apply soft max
+* This is multiplied by value matrix to get an attention score matrix
 
 In multi-head attention, we have `h` heads, as shown in the middle. Each head produces a scaled dot-product attention as described earlier. It is concatenated and fed into a linear layer.
 
-**Challenge of Multi-head attention**
+## **Challenge of Multi-head attention**
 
 The crux of the issue lies in the memory overhead. 
 Each decoding step in autoregressive models like Transformers requires loading decoder weights along with all attention keys and values. 
 This process is not only computationally intensive but also memory bandwidth-intensive. As model sizes grow, this overhead also increases, making scaling up an increasingly arduous task.
 
-
-![[Pasted image 20240204173227.png]]
+The below figure shows how a multi-attention scenario works.
+![multi attention](https://github.com/bsbarkur/bsbarkur.github.io/assets/106684/4ad9cdaf-13da-4d51-98ad-3e1e18878ffa)
