@@ -1,11 +1,12 @@
 # Llama 2: Open Foundation and Fine-Tuned Chat Models
 
+In this blog, I capture the notes on paper session on Meta's Llama 2, conducted by the [paper reading community](https://hasgeek.com/fifthelephant/call-for-papers/) under the aegis of fifth elephant community orchestrated by Hasgeek. Sachin and Anjineyulu presented this paper recently and it was a very interesting discussion and introduction to salient and high level important points in the paper by Meta. I capture them here below.
 
 ## Paper link
 [Llama2 Paper by Meta](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/)
 
 
-## Architecture high level of the model training pipeline followed in LLAMA2 by Meta
+## High level architecture of the model training pipeline followed in LLAMA2 model training
 ![High level architecture of llama2 training pipeline](https://github.com/bsbarkur/bsbarkur.github.io/assets/106684/21797517-1c11-48bd-b215-10dc0d152219)
 
 ## Why continual pre-training is hard?
@@ -15,11 +16,12 @@ This can make it difficult to find a set of hyper-parameters that work well for 
 
 Here are some specific challenges associated with continual pre-trained models: 
 * **Data scarcity:** Continual pre-trained models often have access to limited data for each task. This can make it difficult to learn to perform well on a wide range of tasks. 
-* **Hyper-parameter tuning:** Finding a set of hyper-parameters that work well for all tasks can be difficult. This is because different tasks may require different settings in order to achieve good performance. * **Catastrophic forgetting:** Continual pre-trained models must be able to learn new tasks without forgetting what they have already learned. This is a difficult problem, as it requires the model to be able to distinguish between different tasks and to update its knowledge in a way that does not interfere with its performance on previous tasks. 
+* **Hyper-parameter tuning:** Finding a set of hyper-parameters that work well for all tasks can be difficult. This is because different tasks may require different settings in order to achieve good performance.
+* **Catastrophic forgetting:** Continual pre-trained models must be able to learn new tasks without forgetting what they have already learned. This is a difficult problem, as it requires the model to be able to distinguish between different tasks and to update its knowledge in a way that does not interfere with its performance on previous tasks. 
 * **Negative transfer:** Continual pre-trained models may experience negative transfer, where learning a new task can hurt performance on previous tasks. This can be caused by the model learning to focus on features that are specific to the new task, at the cost of features that are important for previous tasks. 
 
 ## **Mixture of Experts**
-Mixture of experts is a way to achieve lower inference latency but with more parameters. More details at HF blog - https://huggingface.co/blog/moe
+Mixture of experts is a way to achieve lower inference latency but with more parameters. More details at [HF blog on MOE](https://huggingface.co/blog/moe)
 
 
 ## **Responsible AI:**
@@ -34,11 +36,9 @@ Manually annotated 27450 instruction and response pairs.
 
 ## Comparing of pre-trained hyperparameters and the SFT hyperparameters.
 
-The cosine learning rate in SFT is reduced by an order of one magnitude. This is likely because in SFT, we want to change the style of information and we don't want to add any new information. Hence lower learning rate is picked.
-
-the weight decay remains the same
-
-Sequence length also remains the same.
+* The cosine learning rate in SFT is reduced by an order of one magnitude. This is likely because in SFT, we want to change the style of information and we don't want to add any new information. Hence lower learning rate is picked.
+* The weight decay remains the same
+* Sequence length also remains the same.
 
 In pre-training, we ask the model to learn the next token.
 In SFT we are asking the model to learn the response tokens.
@@ -56,11 +56,11 @@ They used four degrees of comparison
 ## Reward model
 The reward model was used on fine-tuning RLHF for weeks, till they were confident of improvements.
 
-the objective for the ranking for the reward model
+The objective for the ranking for the reward model
 
 If the reward is low, the negative value will come, and vice versa.
 
-margin term gives them more granular control over how they can control the function.
+Margin term gives them more granular control over how they can control the function.
 
 1 epoch of training was done, so that it won't overfit. DPO sometimes has this issue of overfitting.
 
