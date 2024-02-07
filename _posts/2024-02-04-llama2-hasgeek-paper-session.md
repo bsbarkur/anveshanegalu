@@ -106,9 +106,9 @@ We adopt most of the pretraining setting and model architecture from Llama 1. We
 ## Grouped Query Attention GQA
 ![gqa](https://github.com/bsbarkur/bsbarkur.github.io/assets/106684/224abbbc-4010-4b6b-8976-1c1112b4667e)
 
-https://www.youtube.com/watch?v=o68RRGxAtDo
 
-This explains how Grouped Query Attention works.
+[This video](https://www.youtube.com/watch?v=o68RRGxAtDo
+ ) explains how Grouped Query Attention works.
 
 
 ![Self Attention head Blocks in transformer](https://github.com/bsbarkur/bsbarkur.github.io/assets/106684/9d7bdfad-cd8f-4d68-8eca-6154baed1d9d)
@@ -130,5 +130,5 @@ The crux of the issue lies in the memory overhead.
 Each decoding step in autoregressive models like Transformers requires loading decoder weights along with all attention keys and values. 
 This process is not only computationally intensive but also memory bandwidth-intensive. As model sizes grow, this overhead also increases, making scaling up an increasingly arduous task.
 
-The below figure shows how a multi-attention scenario works.
+The below figure shows how a Grouped-attention scenario works.
 ![multi attention](https://github.com/bsbarkur/bsbarkur.github.io/assets/106684/4ad9cdaf-13da-4d51-98ad-3e1e18878ffa)
