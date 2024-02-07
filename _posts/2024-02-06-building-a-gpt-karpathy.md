@@ -1,17 +1,17 @@
-# Understanding GPT by building via Karpathy
+# Building GPT from scratch in PyTorch via understanding from Karpathy's tutorials
 
-Andrej Karpathy is one of the pioneers in Machine learning who served as the director of artificial intelligence and Autopilot Vision at Tesla. He currently works for OpenAI, where he specializes in deep learning and computer vision. He is well known for amazing tutorials explained via code sessions on YouTube.
+Andrej Karpathy is one of the pioneers in Machine learning who served as the director of artificial intelligence and Autopilot Vision at Tesla. He currently works for OpenAI, where he specializes in deep learning and computer vision. He is well known for amazing tutorials explained via code sessions on YouTube and for his landmark well curated lectures in Stanford University.
 
 Generative Pre-trained Transformers have set the world of AI and Machine learning on fire in this decade. Open AI's GPT models have set teh world ablaze for it's nearly accurate human mimicking abilities among certain natural language tasks such as text summarization, code interpretation, text generation and translation.
 
-In this blog, I delve to capture the important notes as I dig into code explained and orchestrated by Karpathy in his youtube session.
+In this blog, I delve to capture the important notes as I dig into code explained and orchestrated by Karpathy in his youtube session. I played around with this code and also trained on a tiny Kannada data set taken from Wikipedia (for the lack of any other open license datasets).
 
-## Youtube link
-[youtube session by Karpathy on building a GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&index=7&t=13s)
+## Youtube link for lecture by Karpathy
+[Youtube session by Karpathy on building a GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&index=7&t=13s)
 
 
 ## Transformer
-Transformer is the neural network that does all the heavy lifting. Its genesis lies in the paper in 2017 that was written by Ashsish Vaswani et al at Google called "Attention is all you need".
+Transformer is the neural network that does all the heavy lifting. Its genesis lies in the paper in 2017 that was written by Ashish Vaswani et al at Google called "Attention is all you need".
 
 ## Intro notes from Karpathy's session
 Karpathy lays down the agenda, that the goal of his session is not to build Chat-GPT, because it is a serious production grade system that leverages models pre-trained on internet data and chunks of documents. 
@@ -25,30 +25,23 @@ Tiny Shakespeare data, which is collection of all shakespeare's work in single f
 ## nanoGPT
 It is a repository for training transformers written by karpathy. This trained on open web text can mimic performance of gpt2, by open ai.
 
-## Explanation of GPT Builder code
+## Constructing a language model to generate texts (characters)
 
-1. Loading the dataset: Read the tiny shakespeare dataset into a string.
-
-2. Take set of string in step 1, meaning only unique characters from whole corpus is taken.
-
-3. List on the set of characters created in the step 2 is created.
-
-4. Sorting the list created in step 3, gives an ordering of all the characters in the tiny Shakespeare dataset.
+* Loading the dataset: Read the tiny shakespeare dataset into a string.
+* Take set of string in step 1, meaning only unique characters from whole corpus is taken.
+* List on the set of characters created in the step 2 is created.
+* Sorting the list created in step 3, gives an ordering of all the characters in the tiny Shakespeare dataset.
 
 ### Vocabulary Size
-Number of characters obtained in step 4 earlier is going to be the vocabulary size.
-
-These are going to be possible elements of our sequence
-
-Vocabulary is the possible set of characters the model can see or emit.
+* Number of characters obtained in step 4 earlier is going to be the vocabulary size.
+* These are going to be possible elements of our sequence.
+* Vocabulary is the possible set of characters the model can see or emit.
 
 ### Tokenizer
+* Tokenizer means converting vocabulary to some integers.
+* Here we convert characters to integers using vocabulary constructed above.
 
- Tokenizer means converting vocabulary to some integers.
- Here we convert characters to integers using vocabulary constructed above.
-
-
- Google'e `Sentencepiece` encodes text into integers, but in different schema and using different vocabulary. It is a sub-word tokenizer. This means that you are not encoding words or characters, but sub-words
+ Google's `Sentencepiece` encodes text into integers, but in different schema and using different vocabulary. It is a sub-word tokenizer. This means that you are not encoding words or characters, but sub-words
 
  Open ai uses `Tiktoken` library which uses Byte Pair Encoding (BPE) to encode tokens. This is what GPT uses.
 
@@ -60,41 +53,39 @@ Vocabulary is the possible set of characters the model can see or emit.
   this tells that open ai has 50k+ sized vocabulary.
 
 
-  ### Construct train and validation data
+  ### Training and validation data
   The 90% of data is broken into train and other 10% into validation dataset.
 
-
   ## Transformer training
-  The data chunks are sampled at random from the traning set during training. These chunks have a maximum length. that is called as block size. You can find it as different names like context length.
-
+  The data chunks are sampled at random from the training set during training. These chunks have a maximum length. that is called as block size. You can find it as different names like context length.
 
   X is the input to the transformer.
   Y is the next block size characters from 1 to block_size + 1.
 
 
-### preparation script
+### Preparation script
 https://github.com/karpathy/nanoGPT/blob/eba36e84649f3c6d840a93092cb779a260544d08/data/shakespeare_char/prepare.py
 
 
-## Trainer
+### Trainer
 For each batch size of 4, we loop through block size tensors of inputs and targets.
 
 
-## Bigram baseline model
-Next, he shows how to implement a bigram language model using Torch framework.
+## Bigram baseline language model
+Next, he shows how to implement a bigram language model using PyTorch framework.
 BigramLanguageModel is implemented as a subclass of nn.Module from PyTorch
 We construct a lookup embedding table using vocab_size which is the size of the vocabulary.
-logits are obtained from this table using index (idx).
-Understand what nn.Module forward pass does.
-Understand what cross entropy of nn.Module does
+* Logits are obtained from this table using index (idx).
+* Understand what nn.Module forward pass does.
+* Understand what cross entropy of nn.Module does
 
 
 ## Training the model
-AdamW optimizer is selected
-Learning rate is kept as 10^-3
-Batch size of 4 is increased to 32,and steps loop of 100 is attempted
-At each step, we sample batch of data from train data created earlier.
-Logits and loss is computed 
+* AdamW optimizer is selected
+* Learning rate is kept as 10^-3
+* Batch size of 4 is increased to 32,and steps loop of 100 is attempted
+* At each step, we sample batch of data from train data created earlier.
+* Logits and loss is computed 
 
 `optimizer.zero_grad` - this if set to set_to_none = True will stop gradients from updating the parameters
 
@@ -102,8 +93,6 @@ If we run for 100 iterations and print out the loss, if it is decreasing, it see
 
 bigram script is ported to py.
 
-
-Explain the code below with simplified examples
 
 ```
 import torch
@@ -198,9 +187,9 @@ print(decode(generated_words[0].tolist()))
 This code will print a sequence of 100 words that were generated by the model.
 
 
-## Transformer based trainer
+## Building a transformer that can generate characters
 
-In the code below, we explain transformer based model.
+In the code below, we explain transformer based model iterating and finetuning the baseline bigram model developed above.
 
 ```
 import torch
@@ -522,3 +511,162 @@ When the model processes a sequence of characters, it looks up the corresponding
 These embedding vectors are then used as input to the transformer blocks. The transformer blocks learn to combine the embedding vectors in a way that captures the relationships between the characters in the sequence.
 
 The embedding table is a crucial component of the transformer-based language model. It allows the model to represent the input tokens in a way that is suitable for learning long-range dependencies in the text.
+
+
+## What is the purpose of position embedding table
+
+position_embedding_table = nn.Embedding(block_size, n_embd)
+ The purpose of the position embedding table is to encode the position of each token in a sequence. This is important because the transformer model, which the position embedding table is a part of, is an attention-based model, and the attention mechanism relies on knowing the relative positions of the tokens in the sequence in order to determine which tokens to attend to.
+
+The position embedding table is a learned embedding table, which means that its weights are updated during training. This allows the model to learn the optimal way to encode the positional information of the tokens in the sequence.
+
+The dimension of the position embedding table is typically the same as the dimension of the token embeddings, which is typically 512 or 1024. This means that each token in the sequence is represented by a vector of 512 or 1024 numbers, which includes both the token embedding and the position embedding.
+
+The position embedding table is added to the token embeddings before the transformer model is applied. This allows the model to learn to attend to the tokens in the sequence in a way that is informed by their positions.
+
+Here is a diagram that shows how the position embedding table is used in the transformer model:
+
+![Positional embedding](image.png)
+
+https://datascience.stackexchange.com/questions/51065/what-is-the-positional-encoding-in-the-transformer-model
+
+The position embedding table is a key part of the transformer model, and it allows the model to learn to attend to the tokens in a sequence in a way that is informed by their positions. This is essential for the model to be able to understand the meaning of the sequence.
+
+Great video that helped me understand this visually: https://www.youtube.com/watch?v=dichIcUZfOw
+
+
+## Block in a transformer
+
+
+ A block in a Transformer model is a building block that performs two main operations: communication and computation. Here's a simplified explanation with an example:
+```
+class Block(nn.Module):
+    """ Transformer block: communication followed by computation """
+
+    def __init__(self, n_embd, n_head):
+        # n_embd: embedding dimension, n_head: the number of heads we'd like
+        super().__init__()
+        head_size = n_embd // n_head
+        self.sa = MultiHeadAttention(n_head, head_size)
+        self.ffwd = FeedFoward(n_embd)
+        self.ln1 = nn.LayerNorm(n_embd)
+        self.ln2 = nn.LayerNorm(n_embd)
+
+    def forward(self, x):
+        x = x + self.sa(self.ln1(x))
+        x = x + self.ffwd(self.ln2(x))
+        return x
+```
+
+ A block in a Transformer model is a building block that performs two main operations: communication and computation. Here's a simplified explanation with an example:
+
+**Communication:**
+- Imagine a group of people (called "heads") standing in a circle, passing messages to each other.
+- Each person (head) receives information from everyone else in the circle.
+- This communication allows each person to gain a broader understanding of the overall situation.
+
+**Computation:**
+- After the communication phase, each person (head) performs some calculations on the information they have gathered.
+- They combine and process the information to make better decisions or predictions.
+
+Example:
+
+- Think of a scenario where you're trying to predict the weather.
+- The communication phase is like gathering data from weather stations, satellites, and other sources.
+- The computation phase is where you process this data to make a prediction about the weather.
+
+In a Transformer model, the blocks are stacked together to form the entire model. Each block communicates and computes to learn patterns and relationships in the data. This allows the model to make predictions or solve problems.
+
+
+## Attention head
+
+```head_size = n_embd // n_head```
+
+The line `head_size = n_embd // n_head` calculates the size of each attention head in the Transformer block.
+
+- `n_embd` is the embedding dimension, which is the size of the input and output vectors for each block.
+- `n_head` is the number of attention heads in the block.
+
+The division (`//`) operator in Python performs integer division, which means it divides two numbers and truncates the result to the nearest whole number.
+
+So, `head_size = n_embd // n_head` calculates the size of each attention head by dividing the embedding dimension by the number of heads. This ensures that the size of each head is an integer, which is required for the attention mechanism to work properly.
+
+For example, if `n_embd` is 512 and `n_head` is 8, then `head_size` will be 512 // 8 = 64. This means that each attention head will have a size of 64.
+
+In general, the size of the attention heads is a hyperparameter that can be tuned to achieve the best performance for a given task.
+
+what is an attentio nhead ? An attention head is a component within a Transformer neural network architecture that allows the model to focus on specific parts of the input data. It helps the model learn relationships and dependencies between different parts of the input.
+
+Here's a simplified analogy to understand attention heads:
+
+Imagine you're reading a long document and trying to understand its main points. You might quickly skim through the document to get a general idea, but then you start to focus on specific sections, sentences, or even words that you find particularly relevant.
+
+Attention heads work in a similar way. They allow the model to focus on important parts of the input data and ignore the less relevant parts. This helps the model learn more effectively and make better predictions.
+
+In a Transformer model, there are multiple attention heads, each focusing on different aspects of the input. The outputs of these attention heads are then combined to create a more comprehensive understanding of the input.
+
+For example, in a natural language processing task, different attention heads might focus on different words or phrases in a sentence. This allows the model to understand the meaning of the sentence and perform tasks like sentiment analysis or machine translation.
+
+The number of attention heads in a Transformer model is a hyper parameter that can be tuned to optimize performance. Typically, more attention heads lead to better performance, but it also increases the computational cost.
+
+Overall, attention heads are important components of Transformer models that enable them to learn relationships and dependencies in the input data and perform complex tasks effectively.
+
+
+## Head in attention layer in the transformer
+
+```
+class Head(nn.Module):
+    """ one head of self-attention """
+
+    def __init__(self, head_size):
+        super().__init__()
+        self.key = nn.Linear(n_embd, head_size, bias=False)
+        self.query = nn.Linear(n_embd, head_size, bias=False)
+        self.value = nn.Linear(n_embd, head_size, bias=False)
+        self.register_buffer('tril', torch.tril(torch.ones(block_size, block_size)))
+
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, x):
+        B,T,C = x.shape
+        k = self.key(x)   # (B,T,C)
+        q = self.query(x) # (B,T,C)
+        # compute attention scores ("affinities")
+        wei = q @ k.transpose(-2,-1) * C**-0.5 # (B, T, C) @ (B, C, T) -> (B, T, T)
+        wei = wei.masked_fill(self.tril[:T, :T] == 0, float('-inf')) # (B, T, T)
+        wei = F.softmax(wei, dim=-1) # (B, T, T)
+        wei = self.dropout(wei)
+        # perform the weighted aggregation of the values
+        v = self.value(x) # (B,T,C)
+        out = wei @ v # (B, T, T) @ (B, T, C) -> (B, T, C)
+        return out
+```
+ In the provided code, the `Head` class represents a single head of a self-attention mechanism within a transformer model. Each head is responsible for calculating attention scores between different positions in a sequence and then using these scores to compute a weighted aggregation of the input sequence.
+
+Here's a breakdown of what each part of the `Head` class does:
+
+1. **Initialization (`__init__` method):**
+   - `head_size`: The dimension of the output embeddings from each head.
+   - `key`, `query`, and `value`: These are linear layers (also known as projections) that map the input vectors to the key, query, and value vectors used in the attention computation. All of these have the shape `(n_embd, head_size)`.
+   - `tril`: A buffer that contains a pre-computed lower triangular matrix of ones. This is used to mask out the diagonal and upper triangular elements in the attention matrix, preventing self-attention at the same position.
+   - `dropout`: A dropout layer used for regularization.
+
+2. **Forward Pass (`forward` method):**
+   - The forward method takes an input sequence `x` of shape `(B, T, C)`, where `B` is the batch size, `T` is the sequence length, and `C` is the embedding dimension.
+   - The linear layers `key`, `query`, and `value` are applied to `x` to obtain the key, query, and value vectors, all of shape `(B, T, head_size)`.
+   - The attention scores (`wei`) are calculated by multiplying the query and key vectors and scaling them by `C**-0.5`.
+   - The attention scores are masked using the `tril` buffer to prevent self-attention at the same position.
+   - The attention scores are normalized using the softmax function along the last dimension, yielding a probability distribution over the sequence positions.
+   - Dropout is applied to the attention scores.
+   - The value vectors are multiplied by the attention scores, resulting in a weighted aggregation of the input sequence. This weighted sum is the output of the head.
+
+The output of the `Head` class is a sequence of vectors of shape `(B, T, head_size)`. This output is typically concatenated with the outputs of other heads (if there are multiple heads) and linearly transformed to produce the final output of the transformer layer.
+
+The `Head` class allows multiple heads to attend to different aspects of the input sequence simultaneously, capturing diverse relationships between elements in the sequence. This is a key component of the transformer architecture's ability to learn long-range dependencies and perform tasks such as machine translation and language modeling.
+
+
+## References:
+
+1. [Attention Is All You Need](https://arxiv.org/abs/1706.03762), Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin
+2. [Dropout: A Simple Way to Prevent Neural Networks from Overfitting](https://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf), Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, Ruslan Salakhutdinov
+3. [Karpathy Nano GPT Lecture Code](https://github.com/karpathy/ng-video-lecture/tree/master), Neural Networks: Zero To Hero video lecture series.
