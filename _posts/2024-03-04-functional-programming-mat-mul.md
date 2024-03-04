@@ -2,7 +2,7 @@
 
 So, thanks to one of the connections I met recently named Sasank, I have been getting a healthy dose of lisp and different way of looking at current systems. 
 
-Sasank has been implementing few nifty things which he hopes will solve problems caused by Von Neumann Bottleneck. For more details the reader is requested to check out his repo at [llama.lisp](https://chsasank.com/llama.lisp/). This post will to distill some of my learnings from perusal of the projects he has been working on in exhaustive style.
+Sasank has been implementing few nifty things which he hopes will solve problems caused by Von Neumann Bottleneck. For more details the reader, is requested to check out his repo at [llama.lisp](https://chsasank.com/llama.lisp/). This post will to distill some of my learnings from perusal of the projects he has been working on in exhaustive style.
 
 ## So what is von Neumann Bottleneck ?
 If one checks the Turing lecture paper given by Backus of BNF fame, they will understand why current imperative language paradigms do not scale and generalize well to certain mathematical properties. Backus shows with very clear descriptions and bulleted points on the shortcomings of so called Von Neumann programming languages.
@@ -206,6 +206,17 @@ print(f(2))  # prints [4, 8]
 
 
 ## understanding execution of mat mul
+
+So, now we can see how it all ties up to implement mat mul, which is the basic building block of all machine learning and deep learning algorithms and model inferencing.
+
+```
+MM = comp(
+    alpha(alpha (IP)),
+    alpha(distl),
+    distr,
+    cat(idx_0, comp(trans, idx_1))
+)
+```
 
 cat(idx_0, comp(trans, idx_1)): This function takes a list X as input and returns a new list. 
 
