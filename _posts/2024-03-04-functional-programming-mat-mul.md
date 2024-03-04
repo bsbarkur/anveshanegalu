@@ -107,7 +107,8 @@ def trans(X):
 ### Mul and Add functions
 
 The below are also straightfoward.
-```def mul(X):
+```
+def mul(X):
     return X[0] * X[1]
 
 def add(X):
