@@ -1,4 +1,4 @@
-# Programming Matrix multiplication in a functional programming style
+# Programming Matrix multiplication in a functional level programming
 
 So, thanks to one of the connections I met recently named Sasank, I have been getting a healthy dose of lisp and different way of looking at current systems. 
 
@@ -20,7 +20,7 @@ Backus shows that how an imperative program that has assignment operations cause
 in word-at-a-time terms in much the same way the 
 computer's bottleneck does".
 
-## Defining Inner product in functional programming style
+## Defining Inner product in functional level programming style
 So inner product is nothing but this formulation
 
 Sasank has written a neat introduction where he shows via python how this form application works for those of us who are wired to think in terms of modern languages [here](https://chsasank.com/llama.lisp/dev/interpreter.html).
@@ -47,7 +47,7 @@ def comp(*fn_list):
 ```
 
 * When you define a function like comp(*fn_list), the 
-before fn_list means “collect all positional arguments into a tuple named fn_list”.
+before fn_list means "collect all positional arguments into a tuple named fn_list".
 * Inside the function, you can use fn_list like a regular tuple, and it will contain all the arguments you passed to the function.
 * When you call a function with an argument like *fn_list, it’s doing the opposite: it’s unpacking the tuple (or list) fn_list into separate arguments.
 
