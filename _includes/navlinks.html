@@ -9,6 +9,10 @@
     <div class="post_navi-arrow">&lt;</div><div class="post_navi-label">About Me</div><div><span>About me</span></div>
   </a>
   {%- else -%}
+  <a class="post_navi-item nav_prev" href="{{ 'kannada' | absolute_url }}" title="kannada">
+    <div class="post_navi-arrow">&lt;</div><div class="post_navi-label">Kannada Posts</div><div><span>Kannada Posts</span></div>
+  </a>
+  {%- else -%}
   <a class="post_navi-item nav_prev" href="{{ 'archive.html' | absolute_url }}" title="Blog Archive">
     <div class="post_navi-arrow">&lt;</div><div class="post_navi-label">Blog Archive</div><div><span>Archive of all previous blog posts</span></div>
   </a>
