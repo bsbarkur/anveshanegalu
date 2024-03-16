@@ -48,6 +48,4 @@ defaults:
       path: ""
       type: kannada
     values:
-      layout: single
-      author_profile: false
-      share: true
+      tags: Kannada
