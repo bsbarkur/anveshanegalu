@@ -33,9 +33,21 @@ titles_from_headings:
   strip_title: true
   collections: true
 
+collections:
+  kannada:
+    output: true
+    permalink: /:collection/:path/
+
 defaults:
   - scope:
       path: ""
       type: post
     values:
       tags: Other
+  - scope:
+      path: ""
+      type: kannada
+    values:
+      layout: single
+      author_profile: false
+      share: true
