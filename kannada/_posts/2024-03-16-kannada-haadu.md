@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Deciphering meaning of Moodalamane by Kambara
+title: ಕಂಬಾರರು ಬರೆದ ಮೂಡಲಮನೆ ಹಾಡಿನ ಅರ್ಥ
 tags: kannada
 ---
 
-# Deciphering meaning of Moodalamane by Kambara
+# ಕಂಬಾರರು ಬರೆದ ಮೂಡಲಮನೆ ಹಾಡಿನ ಅರ್ಥ
 
 ಹಾದಿ ಬೀದೆಲ್ಲಾ ತಂಪಾ ನೆರಳ… ಸೋಕಿ
 
