@@ -1,7 +1,9 @@
 ---
 layout: page
-title: Blog Archive
+title: Blog
 ---
+
+Below you can see the various Tags underwhich each blog is categorized as.
 
 {% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>

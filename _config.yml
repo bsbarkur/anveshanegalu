@@ -18,10 +18,11 @@ linkedin_username: "bharat-shetty-barkur-8111511"
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
 #########################################################################################
 theme: "minima"
+skin: solarized-light
 
 rss: rss
 
-kramdown:
+markdown:
   syntax_highlighter_opts:
     disable: true
     
@@ -33,19 +34,3 @@ titles_from_headings:
   strip_title: true
   collections: true
 
-collections:
-  kannada:
-    output: true
-    permalink: /:collection/:path/
-
-defaults:
-  - scope:
-      path: ""
-      type: post
-    values:
-      tags: Other
-  - scope:
-      path: ""
-      type: kannada
-    values:
-      tags: Kannada
