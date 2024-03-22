@@ -10,7 +10,7 @@
 
 a {
 	color: navy;
-	border-bottom: solid 1px midnightblue
+	#border-bottom: solid 1px midnightblue
 }
 
 a.wikilink,a.pilcrow {
