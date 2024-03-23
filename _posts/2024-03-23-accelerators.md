@@ -55,7 +55,7 @@ If one wants specialized AI accelerators, FPGA and ASIC vendors are also availab
 
 An illustrative figure can be like this that helps to understand the different AI accelerators spectrum can be seen in the picture below.
 
-![Spectrum of AI Accelerators](accel-spectrum.png)
+![Spectrum of AI Accelerators](/_site/assets/accel-spectrum.png)
 
 
 From this reference [blog](https://towardsdatascience.com/ai-accelerators-machine-learning-algorithms-and-their-co-design-and-evolution-2676efd47179) find this quote to explain the above spectrum.
@@ -63,4 +63,5 @@ From this reference [blog](https://towardsdatascience.com/ai-accelerators-machin
 >AI accelerators such as Intel Habana Gaudi, AWS Trainium and AWS Inferentia fall somewhere to the right of GPUs. Habana Gaudi offers programmability, but is less versatile than a GPU so we can put it closer to GPUs. AWS Inferentia is not programmable, but offers a list of supported operations it can accelerate, if your machine learning model doesn’t support those operations then AWS Inferentia implements CPU fall back mode for those operations. So, we can put AWS inferentia further right on that spectrum.
 
 
+## Future innovations
 As the field of AI and LLMs grow at bottleneck speed, expect more such innovations in single and multi-node accelerators. Probably I will cover them in future posts as I learn more about them.
