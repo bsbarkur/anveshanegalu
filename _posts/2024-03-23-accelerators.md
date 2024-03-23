@@ -55,7 +55,7 @@ If one wants specialized AI accelerators, FPGA and ASIC vendors are also availab
 
 An illustrative figure can be like this that helps to understand the different AI accelerators spectrum can be seen in the picture below.
 
-![Spectrum of AI Accelerators](../_site/assets/accel-spectrum.png)
+![Spectrum of AI Accelerators](../../../_site/assets/accel-spectrum.png)
 
 
 From this reference [blog](https://towardsdatascience.com/ai-accelerators-machine-learning-algorithms-and-their-co-design-and-evolution-2676efd47179) find this quote to explain the above spectrum.
