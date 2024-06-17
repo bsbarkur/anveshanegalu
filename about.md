@@ -17,7 +17,7 @@ title: About Me
 </ul>
 	
 <h3 class="text-4xl font-bold pt-4 lg:pt-0">Contact</h3>
-<a class="link" href="https://www.linkedin.com/in/bharat-shetty-barkur-8111511" data-tippy-content="linkedin.com/in/bharat-shetty-barkur-8111511">Linkedin</a> |  				<a class="link" href="https://github.com/bsbarkur" data-tippy-content="@bsbarkur">Github</a> 
+<a class="link" href="https://www.linkedin.com/in/bharat-shetty-bs" data-tippy-content="https://www.linkedin.com/in/bharat-shetty-bs">Linkedin</a> |  				<a class="link" href="https://github.com/bsbarkur" data-tippy-content="@bsbarkur">Github</a> 
 	
 	
 
