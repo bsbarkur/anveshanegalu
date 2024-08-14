@@ -4,7 +4,7 @@ title: Unsupervised Learning, K-Means and Expectation Maximisation algorithm.
 tags: [Machine Learning, cs229, Algorithms] 
 ---
 
-Lecture: (https://www.youtube.com/watch?v=LmpkKwsyQj4)[Lecture from CS229 Lecture 17 by Anand Avati]
+Reference: [Lecture from CS229 Lecture 17 by Anand Avati](https://www.youtube.com/watch?v=LmpkKwsyQj4)
 
 ## Agenda:
 1. Introduction to Unsupervised Learning
